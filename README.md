@@ -7,33 +7,7 @@
 #include <fstream>
 using namespace std;
 
-/*class Startg
-{
-public:	
-	string stg(void stag, bool game)
-	{
-		cin >> stag;
-		if (stag != "#!@")
-		{
-			game = true;
-		}
-		return 0;
-	}
 
-	int stg(void stag, bool game)
-	{
-		cin >> stag;
-		if (stag != 89322)
-		{
-			game = true;
-		}
-		return 0;
-	}
-	
-};*/
-
-
-	
 
 
 
