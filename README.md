@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <ctime>
 #include <string>
@@ -7,23 +6,45 @@
 #include <fstream>
 using namespace std;
 
+class P
+{
+private:
+	int hd1;
+	int wins;
+public:
+	friend int game1(int hd1, int wins);
+};
 
+class C
+{
+private:
+	int hd1;
+	int wins;
+public:
+	friend int game1(int hd1, int wins);
+};
 
+int game1(int hd1, int wins)
+{
+	cout << hd1 << endl << wins << endl;
+	return 0;
+}
 
 
 
 int main()
 {
 	int pos_x, pos_y, ii_x, ii_y, g1 = 0, z = 0;
-	int x = 3, wins = 0;
+	int x = 3, wins = 0, hd1 = 0;
 	char mas[3][3];
 	string wins1, stg;
 	bool game = true, p_status = true, prog = true;
 	char key, a = ' ', b, c, d;
 
-
+	
 
 	cout << "wins:";
+
 
 
 	ofstream out;
@@ -34,12 +55,12 @@ int main()
 		while (getline(in, line))
 		{
 			cout << line << endl;
-			
+
 		}
 	}
 	wins = atoi(wins1.c_str());
 	in.close();
-	
+
 	cout << "press any ket to start: ";
 	cin >> stg;
 
@@ -55,7 +76,7 @@ int main()
 			mas[i][j] = ' ';
 		}
 	}
-	
+
 	do
 	{
 		do
@@ -74,7 +95,7 @@ int main()
 				}
 				cout << '|' << endl;
 			}
-
+			game1(hd1, wins);
 			cout << "input: ";
 			cin >> key;
 			//------------------------------------------------------------------------------------
@@ -94,16 +115,19 @@ int main()
 			{
 				cout << endl << "\t" << "\t" << "You lose";
 				game = false;
+				hd1++;
 			}
 			else if ((mas[1][0] == 'X') && (mas[1][1] == 'X') && (mas[1][2] == 'X')) //середина
 			{
 				cout << endl << "\t" << "\t" << "You lose";
 				game = false;
+				hd1++;
 			}
 			else if ((mas[2][0] == 'X') && (mas[2][1] == 'X') && (mas[2][2] == 'X')) //низ
 			{
 				cout << endl << "\t" << "\t" << "You lose";
 				game = false;
+				hd1++;
 			}
 			//------------------------------------------------------------------------------------
 			//проверка по вертикали
@@ -111,6 +135,7 @@ int main()
 			{
 				cout << endl << "\t" << "\t" << "You lose";
 				game = false;
+				hd1++;
 
 
 			}
@@ -118,11 +143,13 @@ int main()
 			{
 				cout << endl << "\t" << "\t" << "You lose";
 				game = false;
+				hd1++;
 			}
 			else if ((mas[0][2] == 'X') && (mas[1][2] == 'X') && (mas[2][2] == 'X')) //право
 			{
 				cout << endl << "\t" << "\t" << "You lose";
 				game = false;
+				hd1++;
 			}
 			//------------------------------------------------------------------------------------
 			//проверка по диагонали
@@ -130,11 +157,13 @@ int main()
 			{
 				cout << endl << "\t" << "\t" << "You lose";
 				game = false;
+				hd1++;
 			}
 			else if ((mas[0][2] == 'X') && (mas[1][1] == 'X') && (mas[2][0] == 'X')) //право верх
 			{
 				cout << endl << "\t" << "\t" << "You lose";
 				game = false;
+				hd1++;
 			}
 			//------------------------------------------------------------------------------------
 			//управление
@@ -197,7 +226,7 @@ int main()
 				{
 					cout << endl << "\t" << "\t" << "You win";
 					game = false;
-					wins += 1;
+					wins++;
 					out.open("start.txt");
 					if (out.is_open())
 					{
@@ -208,7 +237,7 @@ int main()
 				{
 					cout << endl << "\t" << "\t" << "You win";
 					game = false;
-					wins += 1;
+					wins++;
 					out.open("start.txt");
 					if (out.is_open())
 					{
@@ -219,7 +248,7 @@ int main()
 				{
 					cout << endl << "\t" << "\t" << "You win";
 					game = false;
-					wins += 1;
+					wins++;
 					out.open("start.txt");
 					if (out.is_open())
 					{
@@ -232,7 +261,7 @@ int main()
 				{
 					cout << endl << "\t" << "\t" << "You win";
 					game = false;
-					wins += 1;
+					wins++;
 					out.open("start.txt");
 					if (out.is_open())
 					{
@@ -243,7 +272,7 @@ int main()
 				{
 					cout << endl << "\t" << "\t" << "You win";
 					game = false;
-					wins += 1;
+					wins++;
 					out.open("start.txt");
 					if (out.is_open())
 					{
@@ -254,7 +283,7 @@ int main()
 				{
 					cout << endl << "\t" << "\t" << "You win";
 					game = false;
-					wins += 1;
+					wins++;
 					out.open("start.txt");
 					if (out.is_open())
 					{
@@ -267,7 +296,7 @@ int main()
 				{
 					cout << endl << "\t" << "\t" << "You win";
 					game = false;
-					wins += 1;;
+					wins++;
 					out.open("start.txt");
 					if (out.is_open())
 					{
@@ -278,7 +307,7 @@ int main()
 				{
 					cout << endl << "\t" << "\t" << "You win";
 					game = false;
-					wins += 1;
+					wins++;
 					out.open("start.txt");
 					if (out.is_open())
 					{
@@ -304,9 +333,9 @@ int main()
 				mas[i][j] = ' ';
 			}
 		}
-		
-	}while (prog == true);
-	
+
+	} while (prog == true);
+
 
 }
 
